@@ -1,0 +1,152 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/*#region Root*/
+
+:root{
+    /* SITE COLORS */
+
+    --primary-color: #FFFFFF;
+    --secondary-color: #ECECEC;
+    --text-color: #000000;
+    --color-grey: #707070;
+    --accent-color: #A0B0DA;
+    --accent-grad: #C1F0FF;
+    --call-to-action: #A0DAA6;
+
+    /* LABEL COLORS */
+
+    --color-green: #A0DAA6;
+    --color-violet: #A1A0DA;
+    --color-pink: #DAA0D1;
+    --color-orange: #DAA0A0;
+    --color-blue: #A0D3DA;
+    --color-yellow: #DACDA0;
+}
+/*#endregion Root*/
+
+
+
+/* #region Header */
+
+header h1{
+    margin-top: 8vw;
+    margin-left: 8vw;
+    font-size: 10vw;    
+    font-weight: 700;
+}
+
+/*#endregion Header */
+
+section{
+    display: flex;
+    justify-content: center;
+    margin-top: 8vw;
+}
+
+/*#region Card*/
+figure{
+    display: flex;
+    width: 85%;
+    filter: drop-shadow(1vw 1vw 1vw #00000030);
+}
+
+#label{
+    background-color:#A0DAA6;
+    height: 28vw;
+    width: 16vw;
+    border-top-left-radius: 2vw;
+    border-bottom-left-radius: 2vw;
+}
+
+figcaption{
+    background-color: var(--secondary-color);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 70vw;
+    border-top-right-radius: 2vw;
+    border-bottom-right-radius: 2vw;
+}
+
+figcaption div{
+    height: 80%;
+    width: 80%;
+    margin-left: 4vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+hgroup{
+
+
+}
+
+hgroup h1{
+font-size: 6vw;
+font-weight: 700;
+}
+
+hgroup h3{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-style: solid;
+    border-width: 2px;
+    border-color: var(--color-orange);
+    border-radius: 1vw;
+    font-size: 3vw;
+    font-weight: 500;
+    width: 65%;
+    margin-top: 0.5vw;
+}
+
+#bullet-group{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+}
+
+#bullet{
+    display: flex;
+    width: 8px;
+    height: 8px;
+    border-radius: 100vw;
+    margin-top: 1vw;
+    margin-right: 1vw;
+    background-color: #00000090;
+}
+
+figcaption div hgroup h4{
+    margin-top: 1.5vw;
+    font-size: 3vw;
+    font-weight: 500;
+    color: #00000090;
+}
+
+#options{
+    margin: 0;
+    margin-top: 5.5vw;
+    margin-right: 5.5vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    gap: 0.8vw;
+}
+
+#options span{
+    background-color: #00000090;
+    width: 8px;
+    height: 8px;
+    border-radius: 20vw;
+}
+
+/*#endregion Card*/
