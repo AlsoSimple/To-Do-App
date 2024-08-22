@@ -9,7 +9,7 @@
             // Retrieve the existing array from localStorage or create a new one if it doesn't exist
             let textArray = JSON.parse(localStorage.getItem('textArray')) || [];
 
-            // Add the new text to the array
+
             textArray.push(text);
 
             // Save the updated array back to localStorage
