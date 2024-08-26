@@ -16,38 +16,76 @@
   <body>
     <header>
       <h1>To do</h1>
+      <hr />
     </header>
 
-    <section id="list-section">
-      <figure>
-        <span id="label"></span>
-        <figcaption>
-          <div>
-            <hgroup>
-              <h1>Morning</h1>
-              <h3>Personal</h3>
-            </hgroup>
-            <hgroup id="bullet-group">
-              <span id="bullet"></span>
-              <h4>Make breakfast...</h4>
-            </hgroup>
-          </div>
-          <div id="options">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-        </figcaption>
-      </figure>
-    <section>
-      <section>
-        <h1>Save Text to LocalStorage Array</h1>
-  
-        <textarea id="myTextarea" rows="10" cols="30"></textarea>
-        <br />
-        <button id="saveButton">Save</button>
-    
+    <!-- Main Content -->
+    <section id="list-section"></section>
+
+    <!-- Menu Button -->
+    <div id="menuButton">
+      <div>
+        <svg
+          width="32"
+          height="32"
+          viewBox="0 0 32 32"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M16 0C14.3431 0 13 1.34315 13 3V13H3C1.34315 13 0 14.3431 0 16C0 17.6569 1.34315 19 3 19H13V29C13 30.6569 14.3431 32 16 32C17.6569 32 19 30.6569 19 29V19H29C30.6569 19 32 17.6569 32 16C32 14.3431 30.6569 13 29 13H19V3C19 1.34315 17.6569 0 16 0Z"
+            fill="#454545"
+          />
+        </svg>
+      </div>
+    </div>
+
+    <!-- Create List Menu -->
+    <section id="listMenu" class="">
+      <div id="menuContainer">
+        <header>
+          <h1>Create list</h1>
+          <div id="closeMenuButton">X</div>
+        </header>
+        
+
+
+        <input
+          id="myTextarea"
+          type="text"  
+          placeholder="Title..."
+          autocomplete="off"
+        ></input>
+        <!-- COLOR PICKER BUTTON -->
+        <button id="colorPickerButton"> Color...
+          <span></span>
+        </button>
+        <!-- COLOR PICKER -->
+
+        <!-- <div id="colorPickerMenu">
+          <span onclick="callback('1')"></span>
+          <span onclick="callback('2')"></span>
+          <span onclick="callback('3')"></span>
+          <span onclick="callback('4')"></span>
+          <span onclick="callback('5')"></span>
+          <span onclick="callback('6')"></span>
+        </div> -->
+
+
+        <input 
+        id="category"
+        type="text"
+        placeholder="Category..."
+        autocomplete="off"
+        ></input>
+
+        
+        <button id="saveButton">Create</button>
+
         <ul id="entriesList"></ul>
-      </section>
+      </div>
+    </section>
   </body>
 </html>

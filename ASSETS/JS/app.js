@@ -1,28 +1,39 @@
 //write js aqui...
 
+    // Modal Code
 
 let myData = [] // This array will contain all of my combined data.
 
+loadData();
+
+//-----------------------------------------------------------------------------------------------------------------
+   //Controller Code
 
 // Function to create a new list object with the typed text as the name
 function saveText() {
     const text = document.getElementById('myTextarea').value;
     if (text.trim() === '') {
         console.log('no text');
-        return;
+        
+
+    } else{
+        console.log(text);
+        
+        makeList(text);
     }
-
+     // The function "makeList" is called here and the name is defined by sending a parameter to the function.
+}
     /// Here i will generate my write data.
-
-
+ 
     // A function that creates a new variable with a data object.
     
     function makeList(myName) {
-            // let, this variable is called myTodoList. 
+            // let, this variable is called myList. 
             // And it is "=" a data object signified by the use of brackets "{}"
             // it contains 2 data objects and a new one is signified by the use of ","
         let myList = {
             name: myName, // key-value pair containing the name for our created list.
+            category: '',
             listItems: [] // empty array for future list items
         };
 
@@ -30,10 +41,9 @@ function saveText() {
 
         console.log(myData);
 
-    }
+    
 
-    makeList(text); // The function "makeList" is called here and the name is defined by sending a parameter to the function.
-
+    
     // Saves the updated array back to localStorage
     localStorage.setItem('myData', JSON.stringify(myData));
 
@@ -47,13 +57,30 @@ function saveText() {
     console.log('buildList called with:', myData[myData.length - 1]);
 
     //Calling the "buildList" function 
-    buildList(myData[myData.length - 1]); //(length - 1) accesses the last element in the array
+   buildList(myData[myData.length - 1]); //(length - 1) accesses the last element in the array
+        console.trace();
+    }
+
+function loadData() {
+    const storedData = localStorage.getItem('myData');
+    if (storedData) {
+        myData = JSON.parse(storedData);
+        myData.forEach((list) => {
+            buildList(list);
+        });
+    }
 }
+
+
 
 // saveButton click event
 document.getElementById('saveButton').addEventListener('click', saveText);
 
 
+
+//-----------------------------------------------------------------------------
+
+    //View Code
 
 // Creates the new card.
 function buildList(myList) {
@@ -82,3 +109,19 @@ function buildList(myList) {
 
     document.getElementById('list-section').innerHTML += myHTML;
 }
+
+// Menu
+
+let myMenuButton = document.getElementById('menuButton')
+
+let myListMenu = document.getElementById('listMenu')
+
+let myCloseMenuButton = document.getElementById('closeMenuButton')
+
+myMenuButton.addEventListener('click', (event) =>{
+    myListMenu.classList.toggle('hidden')
+})
+
+myCloseMenuButton.addEventListener('click', (event) =>{
+    myListMenu.classList.toggle('hidden')
+})

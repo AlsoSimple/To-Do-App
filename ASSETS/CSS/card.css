@@ -40,6 +40,13 @@ header h1{
     font-weight: 700;
 }
 
+header hr{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+}
+
 /*#endregion Header */
 
 section{
@@ -50,8 +57,14 @@ section{
 }
 
 /*#region Card*/
+#list-section{
+    display: flex;
+    align-items: center;
+}
+
 figure{
     display: flex;
+    margin-top: 6vw;
     width: 85%;
     filter: drop-shadow(1vw 1vw 1vw #00000030);
 }
@@ -151,3 +164,120 @@ figcaption div hgroup h4{
 }
 
 /*#endregion Card*/
+
+
+/*#region Menu*/
+#menuButton{
+    margin-top: 6vw;
+    display: flex;
+    justify-content: center;
+
+}
+
+#menuButton div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-style: solid;
+    width: 12vw;
+    height: 12vw;
+    border-radius: 100%;
+    border-color: var(--call-to-action);
+    filter: drop-shadow(0.2vw 0.2vw 0.2vw var(--call-to-action));
+}
+
+#listMenu header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#listMenu header div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#listMenu{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 90vw;
+    background: -webkit-linear-gradient(-90deg, var(--accent-color), var(--accent-grad));
+    border-top-left-radius: 6vw;
+    border-top-right-radius: 6vw;
+}
+
+#menuContainer{
+    position: relative;
+    width: 80%;
+    transform: translateX(-50%);
+    left: 50%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 8vw;
+}
+
+input{
+   
+    border-radius: 3vw;
+    border: 0.8vw solid var(--text-color);
+    padding: 3vw;
+    font-size: 4vw;
+    font-weight: 600;
+    background-color: #00000000;
+    margin-bottom: 4vw;
+}
+
+#colorPickerButton{
+    display: flex;
+    justify-content: space-between;
+    border-radius: 3vw;
+    border: 0.8vw solid var(--text-color);
+    padding: 3vw;
+    font-size: 4vw;
+    color: #00000085;
+    font-weight: 600;
+    background-color: #00000000;
+    margin-bottom: 4vw; 
+}
+
+#colorPickerButton span{
+    display: block;
+    width: 5vw;
+    height: 5vw;
+    background-color: var(--color-pink);
+    border: 2px solid var(--text-color);
+    border-radius: 1.5vw;
+}
+
+#colorPickerMenu {
+    display: flex;
+    
+
+}
+
+#colorPickerMenu span{
+    display: block;
+    width: 5vw;
+    height: 5vw;
+    background-color: var(--color-pink);
+    border: 2px solid var(--text-color);
+    border-radius: 1.5vw;
+}
+
+
+#saveButton{
+    font-weight: 700;
+    padding: 4vw;
+    border-radius: 4vw;
+    background-color: var(--call-to-action);
+    border-style: none;
+    filter: drop-shadow(2px 2px 2px var(--color-grey));
+}
+/*#endregion Menu */
+
+
+.hidden{
+    display: none !important;
+}
