@@ -11,7 +11,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="ASSETS/CSS/card.css" />
-    <script src="ASSETS/JS/app.js" defer></script>
+    <script src="ASSETS/JS/app2.js" defer></script>
   </head>
   <body>
     <header>
@@ -23,7 +23,8 @@
     <section id="list-section"></section>
 
     <!-- Menu Button -->
-    <div id="menuButton">
+     <!-- BUTTON THAT OPENS THE MENU -->
+    <div id="menuButton" class="button">
       <div>
         <svg
           width="32"
@@ -42,18 +43,48 @@
       </div>
     </div>
 
+    <!-- ITEM MENU BUTTON -->
+    <div id="itemMenuButton" class="button">
+      <div>
+        <svg
+          width="32"
+          height="32"
+          viewBox="0 0 32 32"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M16 0C14.3431 0 13 1.34315 13 3V13H3C1.34315 13 0 14.3431 0 16C0 17.6569 1.34315 19 3 19H13V29C13 30.6569 14.3431 32 16 32C17.6569 32 19 30.6569 19 29V19H29C30.6569 19 32 17.6569 32 16C32 14.3431 30.6569 13 29 13H19V3C19 1.34315 17.6569 0 16 0Z"
+            fill="#454545"
+          />
+        </svg>
+      </div>
+    </div>
+
+    <div id="homeButton" class="button">
+      <div>
+        <svg width="36" height="32" viewBox="0 0 36 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M17.7187 0L35.4376 13.2891L34.5938 15.8203H33.1874V31.9922H2.25V15.8203H0.84375L0 13.2891L17.7187 0ZM5.0625 13.0078V29.1797H30.3749V13.0078L17.7187 3.51562L5.0625 13.0078Z" fill="#454545"/>
+          </svg>
+      </div>
+    </div>
+    <!-- Tutorial container -->
+     <div id="tutorialContainer"></div>
+   
+
     <!-- Create List Menu -->
-    <section id="listMenu" class="">
+    <section id="listMenu" class="hidden">
       <div id="menuContainer">
         <header>
-          <h1>Create list</h1>
           <div id="closeMenuButton">X</div>
         </header>
         
 
 
         <input
-          id="myTextarea"
+          id="myTitleInput"
           type="text"  
           placeholder="Title..."
           autocomplete="off"
@@ -75,7 +106,7 @@
 
 
         <input 
-        id="category"
+        id="myCategoryInput"
         type="text"
         placeholder="Category..."
         autocomplete="off"
@@ -83,6 +114,28 @@
 
         
         <button id="saveButton">Create</button>
+
+        <ul id="entriesList"></ul>
+      </div>
+    </section>
+
+    <!-- Create Item Menu -->
+    <section id="itemMenu" class="hidden">
+      <div id="ItemMenuContainer">
+        <header>
+          <div id="closeItemMenuButton">X</div>
+        </header>
+        
+
+
+        <input
+          id="myItemTitleInput"
+          type="text"  
+          placeholder="Title..."
+          autocomplete="off"
+        ></input>
+
+        <button id="saveItemButton">Create</button>
 
         <ul id="entriesList"></ul>
       </div>

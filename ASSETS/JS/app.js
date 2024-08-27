@@ -9,34 +9,40 @@ loadData();
 //-----------------------------------------------------------------------------------------------------------------
    //Controller Code
 
-// Function to create a new list object with the typed text as the name
-function saveText() {
-    const text = document.getElementById('myTextarea').value;
-    if (text.trim() === '') {
-        console.log('no text');
-        
+// Function to create a new list object with the typed text as the name and category.
 
+function saveText() {
+    const title = document.getElementById('myTitleInput').value;
+    const category = document.getElementById('myCategoryInput').value;
+
+    if (title.trim() === '' || category.trim() === '') {
+        console.log('no text');
     } else{
-        console.log(text);
+        console.log('Title:', title, 'Category:', category);
         
-        makeList(text);
+        makeList(title, category);
     }
      // The function "makeList" is called here and the name is defined by sending a parameter to the function.
 }
+
     /// Here i will generate my write data.
  
     // A function that creates a new variable with a data object.
     
-    function makeList(myName) {
+    function makeList(myName, categoryName) {
             // let, this variable is called myList. 
             // And it is "=" a data object signified by the use of brackets "{}"
             // it contains 2 data objects and a new one is signified by the use of ","
         let myList = {
+            index: myData.length,
             name: myName, // key-value pair containing the name for our created list.
-            category: '',
-            listItems: [] // empty array for future list items
+            category: categoryName,
+            color: 'listColor', //nice to have! but not necessary...
+            listItems: ['item 1', 'item 2', 'item 3'] // empty array for future list items
         };
-
+        console.log(myData.length);
+        removeTutorial();
+        myListMenu.classList.toggle('hidden')
         myData.push(myList); // The data object is then pushed into the combined data array.
 
         console.log(myData);
@@ -51,8 +57,10 @@ function saveText() {
     console.log('text saved as list name to myData'); //log to check if it works
     
 
-    // Clears the "textarea" after saving the data to localstorage.
-    document.getElementById('myTextarea').value = ''; 
+    // Clears the "myTitleInput" after saving the data to localstorage.
+    document.getElementById('myTitleInput').value = ''; 
+    // Clears the "myCategoryInput" after saving the data to localstorage.
+    document.getElementById('myCategoryInput').value = ''; 
 
     console.log('buildList called with:', myData[myData.length - 1]);
 
@@ -61,6 +69,7 @@ function saveText() {
         console.trace();
     }
 
+    //functionn that reads the local storage and generates cards accordingly
 function loadData() {
     const storedData = localStorage.getItem('myData');
     if (storedData) {
@@ -68,6 +77,9 @@ function loadData() {
         myData.forEach((list) => {
             buildList(list);
         });
+        //if nothing is found in the local storage, display the tutorial.
+    } else {
+        buildTutorial();
     }
 }
 
@@ -83,15 +95,16 @@ document.getElementById('saveButton').addEventListener('click', saveText);
     //View Code
 
 // Creates the new card.
+
 function buildList(myList) {
     let myHTML = `
-        <figure>
+        <figure class="listItem" id="listItem-${myList.index}">
             <span id="label"></span>
             <figcaption>
                 <div>
                     <hgroup>
                         <h1>${myList.name}</h1>
-                        <h3>Personal</h3>
+                        <h3>${myList.category}</h3>
                     </hgroup>
                     <hgroup id="bullet-group">
                         <span id="bullet"></span>
@@ -107,8 +120,54 @@ function buildList(myList) {
         </figure>
     `;
 
-    document.getElementById('list-section').innerHTML += myHTML;
+    const listSection = document.getElementById('list-section');
+    listSection.innerHTML += myHTML;
+
+    // Get the figure by its unique id and add a click event listener to it
+    const figure = document.getElementById(`listItem-${myList.index}`);
+    figure.addEventListener('click', () => {
+        displayListItems(myList, figure);
+    });
 }
+
+
+function displayListItems(myList, figure) {
+    // Clear the list section
+    const listSection = document.getElementById('list-section');
+    listSection.innerHTML = '';
+
+    // Move the clicked figure to the top
+    figure.classList.add('selected-figure');
+    listSection.appendChild(figure);
+
+    // Create an element to display the list items
+    let itemsHTML = '<ul id="item-list">';
+    myList.listItems.forEach(item => {
+        itemsHTML += `<li>${item}</li>`;
+    });
+    itemsHTML += '</ul>';
+
+    listSection.innerHTML += itemsHTML;
+}
+
+
+
+//Creates the tutorial h2
+function buildTutorial() {
+    let myHTML = `
+        <h2>
+        Click on the button above to add a new list...
+        </h2>`;
+
+    document.getElementById('tutorialContainer').innerHTML += myHTML;
+}
+
+//removes the tutorial h2
+function removeTutorial() {
+    document.getElementById('tutorialContainer').innerHTML = '';
+}
+
+
 
 // Menu
 
@@ -123,5 +182,9 @@ myMenuButton.addEventListener('click', (event) =>{
 })
 
 myCloseMenuButton.addEventListener('click', (event) =>{
+    console.log('button clicked');
     myListMenu.classList.toggle('hidden')
 })
+
+
+
