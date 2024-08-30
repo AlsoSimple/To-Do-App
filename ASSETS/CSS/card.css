@@ -3,7 +3,15 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
+    
 }
+
+html {
+    height: 100%;
+  }
+  body {
+    min-height: 100%;
+  }
 
 /*#region Root*/
 
@@ -171,15 +179,37 @@ figcaption div hgroup h4{
     margin-top: 6vw;
     display: flex;
     justify-content: center;
-
+    
 }
 
 /*#endregion Menu Button*/
 
 /*#region Home Button*/
-#homebutton{
-  
+#homeButton{
+    position: absolute;
+    bottom: 8vw;
+    left: 50%;
+    transform: translateX(-50%);
+
 }
+
+
+
+#homeButton div{
+    position: relative;
+    border-style: solid;
+    width: 16vw;
+    height: 16vw;
+    border-radius: 100%;
+    border-color: var(--call-to-action);
+    filter: drop-shadow(0.2vw 0.2vw 0.2vw var(--call-to-action));
+}
+
+#homeButton div svg{
+    width: 10vw;
+    height: 10vw;
+}
+
 /*#endregion Home Button*/
 
 /*#region Tutorial*/
@@ -222,6 +252,11 @@ figcaption div hgroup h4{
     border-radius: 100%;
     border-color: var(--call-to-action);
     filter: drop-shadow(0.2vw 0.2vw 0.2vw var(--call-to-action));
+}
+
+.button div svg{
+    width: 8vw;
+    height: 8vw;
 }
 
 #listMenu header{
@@ -315,6 +350,26 @@ input{
     filter: drop-shadow(2px 2px 2px var(--color-grey));
 }
 /*#endregion Menu */
+
+/*#region item*/
+
+#item-container{
+    display: flex;
+    background-color: red;
+    width: 85%;
+    height: 12vw;
+    border-radius: 2vw;
+}
+#item-container ul{
+ 
+}
+
+#item-container ul li{
+
+}
+
+
+/*#endregion item*/
 
 
 .hidden{
