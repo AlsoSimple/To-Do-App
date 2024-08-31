@@ -6,7 +6,7 @@
 // This array will contain all of my combined data.
 let myData = [];
 
-// Function that reads the local storage and initializes myData.
+// Function that raeads the local storage myData.
 function loadData() {
     const storedData = localStorage.getItem('myData');
     if (storedData) {
@@ -33,7 +33,7 @@ function addList(myName, categoryName) {
     return myList;
 }
 
-// Adds a new item to the selected list's listItems array
+// Add item to the selected lists listItems array[]
 function addItemToList(myItemName, listIndex) {
     const myItem = {
         name: myItemName, // key-value pair containing the name for the new item
@@ -59,6 +59,11 @@ function saveText() {
     } else {
         console.log('Title:', title, 'Category:', category);
         const newList = addList(title, category);
+
+
+
+
+
         buildList(newList);
     }
 
@@ -138,18 +143,18 @@ function setupMenu() {
     document.getElementById('saveItemButton').addEventListener('click', saveItem);
 }
 
-// Initialize the application
+// Initialize the app
 function init() {
     loadData();
     myData.forEach((list) => {
         buildList(list);
     });
+    
     setupMenu();
 
-    // Event listener for save button
     document.getElementById('saveButton').addEventListener('click', saveText);
     
-    // If nothing is found in local storage, display the tutorial
+    // If nothing is found in local storage, display the tutorial :))
     if (myData.length === 0) {
         buildTutorial();
     } else {
@@ -207,21 +212,25 @@ function displayListItems(myList, figure) {
     const listSection = document.getElementById('list-section');
     listSection.innerHTML = '';
 
-    // Move the clicked figure to the top
+//move figure up
     figure.classList.add('selected-figure');
     listSection.appendChild(figure);
     myMenuButton.classList.add('hidden');
 
-    // Create an element to display the list items
+    
     let itemsHTML = '<ul id="item-list">';
     myList.listItems.forEach((item, index) => {
         const checked = item.status ? 'checked' : '';
         itemsHTML += `
-            <li>
-                <input type="checkbox" id="checkbox-${index}" ${checked} onclick="toggleItemStatus(${myList.index}, ${index})">
-                <label for="checkbox-${index}">${item.name}</label>
-                <button onclick="deleteItem(${myList.index}, ${index})">X</button> <!-- Delete button -->
-            </li>`;
+                      <div id="item-container">
+        <ul>
+          <li>
+            <label for="checkbox-${index}">${item.name}</label>
+            <button onclick="deleteItem(${myList.index}, ${index})">X</button> <!-- Delete button -->
+            <input class="checkboxclass" type="checkbox" id="checkbox-${index}" ${checked} onclick="toggleItemStatus(${myList.index}, ${index})">
+          </li>
+        </ul>
+      </div>`;
     });
     itemsHTML += '</ul>';
 
@@ -232,7 +241,7 @@ function displayListItems(myList, figure) {
 
 
 function toggleItemStatus(listIndex, itemIndex) {
-    // Toggle the status of the item
+
     myData[listIndex].listItems[itemIndex].status = !myData[listIndex].listItems[itemIndex].status;
 
     // Save the updated data to localStorage

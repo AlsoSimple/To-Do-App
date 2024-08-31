@@ -182,7 +182,23 @@ figcaption div hgroup h4{
     
 }
 
+#itemM  enuButton{
+    margin-top: 6vw;
+    display: flex;
+    justify-content: center;
+    
+}
+
 /*#endregion Menu Button*/
+
+
+/*#region item menu button*/
+
+#itemMenuButton{
+    margin-top: ;
+    display: flex;
+    justify-content: center;
+}
 
 /*#region Home Button*/
 #homeButton{
@@ -351,22 +367,51 @@ input{
 }
 /*#endregion Menu */
 
+
+
 /*#region item*/
+
+#item-list{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
 
 #item-container{
     display: flex;
-    background-color: red;
+    background: -webkit-linear-gradient(-90deg, var(--color-green), #d7f5da);
+    margin-top: 6vw;
     width: 85%;
     height: 12vw;
     border-radius: 2vw;
 }
 #item-container ul{
- 
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #item-container ul li{
-
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+
+#item-container ul li input{
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+
+
+#item-container ul li .checkboxclass {
+    margin-left: auto; /* Pushes the checkbox to the far right */
+    display: flex;
+    align-items: center; /* Centers the checkbox vertically */
+  }
 
 
 /*#endregion item*/
